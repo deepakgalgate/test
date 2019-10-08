@@ -19,12 +19,10 @@ import com.in28minutes.microservices.limitsservice.config.Configuration;
 public class LimitConfigController {
 	@Autowired
 	private Configuration config;
-	@Value("${minimum}")
-	private int min;
 	
 	@GetMapping("/limits")
 	public LimitConfig retrieveLimitsFromConfig() {
-		return new LimitConfig(config.getMax(),min);
+		return new LimitConfig(config.getMax(),config.getMin());
 	}
 	
 }
